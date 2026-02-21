@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Asís - Estación Buenos Aires</title>
+
+  <!-- SEO básico -->
+  <meta name="description" content="Presentación y propuesta de administración consorcial para Estación Buenos Aires (Sector 3): presencia, orden y expensas claras." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Carlos Asís - Estación Buenos Aires" />
+  <meta property="og:description" content="Presencia, orden y expensas claras. Propuesta para la Asamblea del 30 de marzo." />
+  <meta property="og:type" content="website" />
+  <!-- Podés reemplazar por una imagen propia -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=80" />
+
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Fonts: performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    :root{
+      --azul-profundo:#0d1b2a;
+      --azul-medio:#1b263b;
+      --dorado-suave:#c29545;
+      --dorado-claro:#e0e1dd;
+      --blanco:#ffffff;
+      --gris:#495057;
+      --gris-fondo:#f1f3f5;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 14px;
+    }
+
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family:'Roboto', sans-serif;
+      color:var(--gris);
+      line-height:1.7;
+      background:#fff;
+    }
+
+    /* Tipografía */
+    h1,h2,h3,.navbar-brand{
+      font-family:'Playfair Display', serif;
+      font-weight:700;
+      color:var(--azul-profundo) !important;
+      letter-spacing:0.2px;
+    }
+
+    /* Sticky offset para anclas */
+    section[id]{
+      scroll-margin-top: 92px;
+    }
+
+    .bg-navy{
+      background-color:var(--azul-profundo) !important;
+      color:var(--blanco) !important;
+    }
+    .text-gold{ color:var(--dorado-suave) !important; }
+
+    /* Navbar */
+    .navbar{
+      background-color:var(--azul-profundo) !important;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .navbar .navbar-brand{
+      color:var(--blanco) !important;
+      font-size: 1.05rem;
+      letter-spacing: 0.6px;
+    }
+    .navbar .meta{
+      line-height:1.2;
+      color: var(--dorado-claro);
+      font-size: 0.85rem;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 104px 0 72px;
+      background:
+        linear-gradient(rgba(13, 27, 42, 0.86), rgba(13, 27, 42, 0.86)),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=80');
+      background-size:cover;
+      background-position:center;
+      color:var(--blanco) !important;
+    }
+    .hero h1{
+      color:var(--blanco) !important;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.45);
+    }
+    .hero .lead{
+      color:var(--dorado-claro) !important;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Botones “badge” */
+    .legal-badge-btn{
+      font-size: 0.85rem;
+      font-weight: 800;
+      background: rgba(255,255,255,0.96);
+      color: var(--azul-profundo) !important;
+      border-radius: 10px;
+      padding: 12px 18px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin: 10px 8px 0;
+      text-transform: uppercase;
+      text-decoration:none;
+      letter-spacing: 0.8px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(2px);
+    }
+    .legal-badge-btn:hover{
+      background: var(--dorado-suave);
+      color: #fff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.32);
+    }
+
+    /* Caja de biografía */
+    .biography-box{
+      background: var(--gris-fondo);
+      border-left: 5px solid var(--azul-profundo);
+      padding: 20px 20px;
+      border-radius: var(--radius);
+    }
+    .biography-box h5{
+      color: var(--azul-profundo);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    /* Cards de propuestas */
+    .card-proposal{
+      border: 1px solid rgba(13,27,42,0.08);
+      border-top: 6px solid var(--azul-profundo);
+      background: #ffffff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, border-top-color .2s ease;
+      height: 100%;
+    }
+    .card-proposal:hover{
+      border-top-color: var(--dorado-suave);
+      transform: translateY(-4px);
+    }
+    .card-proposal h4{
+      color: var(--azul-medio) !important;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .card-proposal i{
+      color: var(--dorado-suave) !important;
+    }
+
+    /* Botón outline */
+    .btn-outline-dark{
+      border-color: var(--azul-profundo);
+      color: var(--azul-profundo);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .btn-outline-dark:hover{
+      background-color: var(--azul-profundo);
+      color: #fff;
+    }
+
+    /* Contacto */
+    .contact-box{
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      height: 100%;
+    }
+    .contact-box p{ margin: 0; }
+
+    /* Footer */
+    footer{
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark sticky-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <span class="navbar-brand fw-bold mb-0">ADMINISTRACIÓN CARLOS ASÍS</span>
+      <div class="text-end d-none d-md-block meta">
+        <div class="text-gold fw-bold">Matrícula RPA 20368</div>
+        <div>CPCECABA MP To.187 Fo.119</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Estación Buenos Aires, mi nuevo hogar</h1>
+      <p class="lead fst-italic mb-4">"Una historia de gratitud y verdad de la familia nuclear ASIS TOLOZA"</p>
+
+      <div class="mt-4">
+        <a href="#presencia" class="legal-badge-btn" aria-label="Ir a Presencia Real">
+          <i class="fas fa-user-check"></i> Presencia
+        </a>
+        <a href="#orden" class="legal-badge-btn" aria-label="Ir a Orden y Planificación">
+          <i class="fas fa-list-check"></i> Orden
+        </a>
+        <a href="#expensas" class="legal-badge-btn" aria-label="Ir a Expensas Claras">
+          <i class="fas fa-file-invoice-dollar"></i> Expensas claras
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-xl-8 mx-auto">
+          <h2 class="text-center mb-4">Queridas vecinas y queridos vecinos:</h2>
+          <p>
+            Muchos de ustedes me han preguntado con respeto y curiosidad genuina sobre nuestra historia: dónde estamos
+            Gra (1956), Guada (1989) y yo (1956) viviendo ahora en 2026, cuándo nos mudamos y por qué elegimos este lugar.
+          </p>
+          <p>
+            Sentí que era el momento justo de compartir nuestra historia reciente tal como es. Nuestro barrio está en la
+            <strong>Comuna 4 (CABA)</strong>, en el límite entre Parque Patricios y Barracas, integrado por cuatro torres construidas por el programa
+            <strong>PROCREAR (2015-2020)</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historia -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <h3 class="fw-bold border-bottom pb-2">Nuestra llegada al Sector 3</h3>
+
+          <p>
+            La única propietaria del departamento es nuestra hija, <strong>Guadalupe Asís Toloza</strong>.
+            Ella tomó posesión y firmó escritura e hipoteca con el <strong>Banco Ciudad (préstamo UVA)</strong> en febrero de 2022,
+            como titular de la <strong>UF 558, 8° A, Torre 4</strong>.
+          </p>
+
+          <div class="biography-box mt-3">
+            <h5>Mérito y transparencia</h5>
+            <ul class="small mb-0">
+              <li>Guada postuló por sistema de <strong>scoring</strong> (no por sorteo ni privilegios).</li>
+              <li>Cumplió requisitos estrictos: límite de edad (54 años) y no poseer propiedad en Argentina.</li>
+              <li>Eligió el departamento más amplio: 4 ambientes, 3 dormitorios y cochera fija.</li>
+              <li>El destino quiso que le tocara el <strong>último piso con terraza de acceso exclusivo</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h3 class="fw-bold border-bottom pb-2">El esfuerzo familiar</h3>
+
+          <p>
+            Tras refacciones internas financiadas por Guada (quien vendió su coche 0km y tomó préstamos), ingresamos a vivir
+            permanentemente en <strong>diciembre de 2023</strong> junto a su grupo familiar declarado:
+          </p>
+
+          <ul class="mb-3">
+            <li><strong>Gra:</strong> Su mamá cordobesa.</li>
+            <li><strong>Kanky:</strong> Su papá santiagueño.</li>
+          </ul>
+
+          <p class="fst-italic text-muted mb-0">
+            "Nuestra hija única tenía todo el derecho del mundo a no hacerlo así. Sin embargo, eligió compartir su proyecto de vivienda con nosotros.
+            Es para mí un acto inmenso de generosidad intergeneracional."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Propuestas -->
+  <section id="propuestas" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-5">Propuesta para la Asamblea del 30 de Marzo</h2>
+
+      <div class="row g-4 text-start">
+        <div class="col-md-6">
+          <div id="presencia" class="card card-proposal p-4">
+            <h4><i class="fas fa-user-check me-2"></i> Presencia real</h4>
+            <p class="mb-0">
+              Al tener domicilio permanente dentro del Sector 3, se genera un servicio interno las 24 horas.
+              No es un capricho: es poner mi formación técnica al servicio del ciudadano.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div id="expensas" class="card card-proposal p-4">
+            <h4><i class="fas fa-file-invoice-dollar me-2"></i> Expensas claras</h4>
+            <p class="mb-0">
+              Aplicar mi experiencia como <strong>Contador Público</strong> para que cada vecino entienda qué paga en su Liquidación de Expensas.
+              Presupuesto anual, trazabilidad y lectura simple de los gastos.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div id="orden" class="card card-proposal p-4">
+            <h4><i class="fas fa-list-check me-2"></i> Orden y planificación</h4>
+            <p class="mb-0">
+              Planificación integral de obras, prioridades claras y ejecución con control. Menos improvisación, más previsibilidad.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card card-proposal p-4">
+            <h4><i class="fas fa-scale-balanced me-2"></i> Honorarios justos</h4>
+            <p class="mb-0">
+              Mi objetivo es ordenar y transparentar las cuentas sin encarecer el gasto.
+              Propongo <strong>honorarios iguales a los actuales</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="card card-proposal p-4">
+            <h4><i class="fas fa-bullhorn me-2"></i> Comunicación transparente</h4>
+            <p class="mb-0">
+              Optimizar la gestión de cobranzas y sostener una mejora continua de nuestra convivencia consorcial, sin peleas y en paz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perfil -->
+  <section class="py-5 bg-navy">
+    <div class="container">
+      <h2 class="text-center mb-5 text-gold">Radicado permanente en cuatro ciudades argentinas</h2>
+
+      <div class="row text-center g-3">
+        <div class="col-md-3">
+          <h5 class="text-gold mb-2">1) Santiago del Estero</h5>
+          <p class="small mb-0">Desde 1956: nació, estudió y trabajó.</p>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-gold mb-2">2) La Plata</h5>
+          <p class="small mb-0">Desde 1973: estudió y trabajó.</p>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-gold mb-2">3) Córdoba</h5>
+          <p class="small mb-0">Desde 1980: estudió y trabajó.</p>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-gold mb-2">4) Capital Federal</h5>
+          <p class="small mb-0">Desde 1987: jubilado en 2025, estudia y trabaja en 2026.</p>
+        </div>
+      </div>
+
+      <div class="mt-4 text-center">
+        <p class="mb-0">
+          Continúo activo como profesor universitario en modalidad virtual y obtuve la <strong>Matrícula Anual 2026</strong>
+          en el Registro Público de Administradores de Consorcios de la Ciudad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="py-5 text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-3">¡Charlemos!</h2>
+      <p class="mb-0">
+        Si querés conocer más detalles o recibir la propuesta completa antes de la asamblea en el <strong>Patio Interno en planta baja</strong>,
+        podés contactarme:
+      </p>
+
+      <div class="row justify-content-center mt-4 g-3">
+        <div class="col-md-4">
+          <div class="contact-box">
+            <i class="fab fa-whatsapp fa-2x mb-2 text-success" aria-hidden="true"></i>
+            <p class="fw-bold">11-5856-0187</p>
+            <p class="small text-muted mb-0">WhatsApp / Llamadas</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-box">
+            <i class="far fa-envelope fa-2x mb-2 text-primary" aria-hidden="true"></i>
+            <p class="fw-bold">admcarlosasis@gmail.com</p>
+            <p class="small text-muted mb-0">Correo electrónico</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <p class="mb-1"><strong>Carlos "KANKY" ASIS</strong></p>
+        <p class="text-muted small mb-1">Contador Público y Administrador de Consorcios de EBA en CABA</p>
+        <p class="small text-muted mb-0">CUIT 20-11607743-5 | Montesquieu 747, 8°A, Torre 4</p>
+      </div>
+
+      <div class="mt-4">
+        <a
+          href="https://drive.google.com/file/d/15zf_psCLEFlsODZZ80coy5W2T8a8PD/view?usp=sharing"
+          class="btn btn-outline-dark btn-sm"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label='Abrir video personal "Feliz Año Nuevo 2026" en una nueva pestaña'
+        >
+          Ver video personal "Feliz Año Nuevo 2026"
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-light">
+    <div class="container text-center">
+      <p class="small mb-0 text-muted">
+        Recordá registrar tu voto como presente el 30 de marzo, o emitir tu "voto ausente" vía mail según art. 2060 del CCCN.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
