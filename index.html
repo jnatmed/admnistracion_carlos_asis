@@ -421,17 +421,13 @@
         <p class="small text-muted mb-0">CUIT 20-11607743-5 | Montesquieu 747, 8°A, Torre 4</p>
       </div>
 
-      <div class="mt-4">
-        <a
-          href="https://drive.google.com/file/d/15zf_psCLEFlsODZZ80coy5W2T8a8PD/view?usp=sharing"
-          class="btn btn-outline-dark btn-sm"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label='Abrir video personal "Feliz Año Nuevo 2026" en una nueva pestaña'
-        >
-          Ver video personal "Feliz Año Nuevo 2026"
-        </a>
-      </div>
+      <button 
+        type="button" 
+        class="btn btn-outline-dark btn-sm" 
+        data-bs-toggle="modal" 
+        data-bs-target="#videoModal">
+        Ver video personal "Feliz Año Nuevo 2026"
+      </button>
     </div>
   </section>
   <!-- Foto de Perfil -->
@@ -452,6 +448,26 @@
       </p>
     </div>
   </section>
+
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="videoModalLabel">Video Personal - Carlos Asís</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe 
+              src="https://drive.google.com/file/d/15Zf__psCLEFIsODZZZ80coy5W2T8a8PD/preview" 
+              allow="autoplay" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
   <!-- Footer -->
   <footer class="py-4 bg-light">
     <div class="container text-center">
@@ -460,7 +476,17 @@
       </p>
     </div>
   </footer>
-
+  
+  <script>
+    // Detiene el video al cerrar el modal para que no siga sonando de fondo
+    var videoModal = document.getElementById('videoModal');
+    videoModal.addEventListener('hidden.bs.modal', function () {
+      var iframe = videoModal.querySelector('iframe');
+      var tempSrc = iframe.src;
+      iframe.src = "";
+      iframe.src = tempSrc;
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
